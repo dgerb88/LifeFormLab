@@ -8,10 +8,20 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
+    var id: Int?
+    
+    init?(coder: NSCoder, id: Int?) {
+        self.id = id
+        super.init(coder: coder)
+        
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

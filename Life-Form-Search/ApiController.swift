@@ -33,21 +33,18 @@ struct LifeFormAPIRequest: APIRequest {
     }
 }
 
-struct Pages: APIRequest {
+struct TaxonPage: APIRequest {
     var id: Int
     var urlRequest: URLRequest {
-        var url = URL(string: "https://eol.org/api/pages/1.0/\(id).json?taxonomy=true&images_per_page=1&language=en")
+        let url = URL(string: "https://eol.org/api/pages/1.0/\(id).json?taxonomy=true&images_per_page=1&language=en")
         return URLRequest(url: url!)
     }
     
-    func decodeData(_ data: Data) throws -> Page {
+    func decodeData(_ data: Data) throws -> TaxonConcept {
         let decoder = JSONDecoder()
-        return try decoder.decode(
-            Page.self, from: data)
+        return try decoder.decode(TaxonConcept.self, from: data)
     }
 }
-
-
 
 extension Data {
     func prettyPrintedJSONString() {

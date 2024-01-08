@@ -22,6 +22,13 @@ class LifeFormTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+   
+    @IBSegueAction func seguey(_ coder: NSCoder, sender: Any?) -> DetailsViewController? {
+        let cell = (sender as? UITableViewCell)!
+        let indexPath = tableView.indexPath(for: cell)
+        return DetailsViewController(coder: coder, id: lifeForms[indexPath!.row].id)
+    }
+    
     func getLifeForms() {
         Task {
             do {

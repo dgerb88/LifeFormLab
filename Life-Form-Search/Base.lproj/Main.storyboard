@@ -48,6 +48,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mIS-4g-DlP" kind="show" destinationCreationSelector="seguey:sender:" id="OVe-Rv-arj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,16 +67,17 @@
             </objects>
             <point key="canvasLocation" x="1081.679389312977" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="MGP-Or-Puo">
             <objects>
-                <viewController id="mIS-4g-DlP" sceneMemberID="viewController">
+                <viewController id="mIS-4g-DlP" customClass="DetailsViewController" customModule="Life_Form_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CZH-S3-M9d">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="GnO-ji-Am4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="X1b-73-gd8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Nc-2b-Z8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,7 @@
 		4F5BCB1C2B4C5B78006C89E7 /* LifeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BCB1B2B4C5B78006C89E7 /* LifeForm.swift */; };
 		4F5BCB1E2B4C5BA8006C89E7 /* LifeFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BCB1D2B4C5BA8006C89E7 /* LifeFormTableViewController.swift */; };
 		4F5BCB202B4C5C1F006C89E7 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BCB1F2B4C5C1F006C89E7 /* ApiController.swift */; };
+		4F5BCB222B4CB1E4006C89E7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BCB212B4CB1E4006C89E7 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4F5BCB1B2B4C5B78006C89E7 /* LifeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeForm.swift; sourceTree = "<group>"; };
 		4F5BCB1D2B4C5BA8006C89E7 /* LifeFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeFormTableViewController.swift; sourceTree = "<group>"; };
 		4F5BCB1F2B4C5C1F006C89E7 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
+		4F5BCB212B4CB1E4006C89E7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				4F5BCB092B4C5A0C006C89E7 /* SceneDelegate.swift */,
 				4F5BCB0D2B4C5A0C006C89E7 /* Main.storyboard */,
 				4F5BCB1B2B4C5B78006C89E7 /* LifeForm.swift */,
+				4F5BCB212B4CB1E4006C89E7 /* DetailsViewController.swift */,
 				4F5BCB1F2B4C5C1F006C89E7 /* ApiController.swift */,
 				4F5BCB1D2B4C5BA8006C89E7 /* LifeFormTableViewController.swift */,
 				4F5BCB102B4C5A0E006C89E7 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				4F5BCB202B4C5C1F006C89E7 /* ApiController.swift in Sources */,
 				4F5BCB0A2B4C5A0C006C89E7 /* SceneDelegate.swift in Sources */,
 				4F5BCB1C2B4C5B78006C89E7 /* LifeForm.swift in Sources */,
+				4F5BCB222B4CB1E4006C89E7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

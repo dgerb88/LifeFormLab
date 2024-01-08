@@ -14,13 +14,8 @@ struct LifeForm: Codable {
     var content: String
 }
 
-
 struct LifeForms: Codable {
     var results: [LifeForm]
-}
-
-struct Page: Codable {
-    var taxonConcepts: [TaxonConcept]
 }
 
 struct TaxonConcept : Codable {
