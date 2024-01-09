@@ -18,6 +18,10 @@ struct LifeForms: Codable {
     var results: [LifeForm]
 }
 
+struct Page: Codable {
+    var taxonConcept: TaxonConcept
+}
+
 struct TaxonConcept : Codable {
     var identifier: Int
     var dataObjects: [DataObject]?
@@ -42,4 +46,8 @@ struct InsideTaxonConcept: Codable {
     var identifier: Int
     var scientificName: String
     var nameAccordingTo: String
+}
+
+struct HierarchyPage: Codable {
+    
 }

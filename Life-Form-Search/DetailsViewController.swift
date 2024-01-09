@@ -9,6 +9,12 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    @IBOutlet weak var scientificNameLabel: UILabel!
+    
+    @IBOutlet weak var lifeFormImage: UIImageView!
+    @IBOutlet weak var licenseHolder: UILabel!
+    @IBOutlet weak var license: UILabel!
+    
     var id: Int?
     
     init?(coder: NSCoder, id: Int?) {
@@ -22,9 +28,38 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            do {
+                let lifeForm = try await sendRequest(TaxonPage(id: id!))
+                scientificNameLabel.text = lifeForm.taxonConcept.taxonConcepts![0].scientificName
+                if let rightsHolder = lifeForm.taxonConcept.dataObjects?[0].rightsHolder {
+                    licenseHolder.text = rightsHolder
+                } else {
+                    licenseHolder.text = lifeForm.taxonConcept.dataObjects?[0].agents[0].full_name
+                }
+                license.text = lifeForm.taxonConcept.dataObjects?[0].license
+                if let newImageString = lifeForm.taxonConcept.dataObjects?[0].eolMediaURL {
+                    let newImage = try await sendRequest(ImageMaker(imageURLString: newImageString))
+                    lifeFormImage.image = newImage
+                } else {
+                    lifeFormImage.image = UIImage(systemName: "photo.fill")
+                }
+ 
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
+    func sendRequest<Request: APIRequest>(_ request: Request) async throws -> Request.Response {
+        let session = URLSession.shared
+        let (data, response) = try await session.data(for: request.urlRequest)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
+            throw APIError.youSuck
+        }
+        return try request.decodeData(data)
+    }
 
     /*
     // MARK: - Navigation

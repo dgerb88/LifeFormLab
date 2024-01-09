@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol APIRequest {
     associatedtype Response
@@ -40,10 +41,36 @@ struct TaxonPage: APIRequest {
         return URLRequest(url: url!)
     }
     
-    func decodeData(_ data: Data) throws -> TaxonConcept {
+    func decodeData(_ data: Data) throws -> Page {
         let decoder = JSONDecoder()
-        return try decoder.decode(TaxonConcept.self, from: data)
+        return try decoder.decode(Page.self, from: data)
     }
+}
+
+struct ImageMaker: APIRequest {
+    var imageURLString: String
+    var urlRequest: URLRequest {
+        let url = URL(string: imageURLString)
+        return URLRequest(url: url!)
+    }
+    
+    func decodeData(_ data: Data) throws -> UIImage {
+        return UIImage(data: data)!
+    }
+}
+
+struct Hierarchy: APIRequest {
+    var id: Int
+    var urlRequest: URLRequest {
+        let url = URL(string: "https://eol.org/api/hierarchy_entries/1.0/\(id).json?language=en")
+        return URLRequest(url: url!)
+    }
+    
+    func decodeData(_ data: Data) throws -> HierarchyPage {
+        let decoder = JSONDecoder()
+        return try decoder.decode(HierarchyPage.self, from: data)
+    }
+
 }
 
 extension Data {
