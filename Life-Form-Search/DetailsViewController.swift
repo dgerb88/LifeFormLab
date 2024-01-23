@@ -41,12 +41,14 @@ class DetailsViewController: UIViewController {
                 if let newImageString = lifeForm.taxonConcept.dataObjects?[0].eolMediaURL {
                     let newImage = try await sendRequest(ImageMaker(imageURLString: newImageString))
                     lifeFormImage.image = newImage
+                    print(newImageString)
                 } else {
                     lifeFormImage.image = UIImage(systemName: "photo.fill")
                 }
  
             } catch {
                 print(error.localizedDescription)
+                lifeFormImage.image = UIImage(systemName: "photo.fill")
             }
         }
         // Do any additional setup after loading the view.
